@@ -11,8 +11,10 @@ RUN pnpm install --frozen-lockfile=false
 # Build backend directly inside apps/backend
 WORKDIR /app/apps/backend
 RUN npx medusa build
-# Copy .medusa to root as well so both /app and /app/apps/backend have index.html
-RUN cp -r .medusa /app/.medusa || true
+# Copy build artifacts so index.html is available wherever medusa start is executed
+RUN cp -r .medusa/server/public ./public 2>/dev/null || true
+RUN cp -r .medusa /app/.medusa 2>/dev/null || true
+RUN cp -r .medusa/server/public /app/public 2>/dev/null || true
 
 ENV NODE_ENV=production
 
