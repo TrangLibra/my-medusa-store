@@ -1,0 +1,69 @@
+{
+  "$schema": "https://turbo.build/schema.json",
+  "globalEnv": [
+    "DATABASE_URL",
+    "REDIS_URL",
+    "JWT_SECRET",
+    "COOKIE_SECRET",
+    "ADMIN_CORS",
+    "STORE_CORS",
+    "AUTH_CORS",
+    "PORT",
+    "NODE_ENV"
+  ],
+  "globalPassThroughEnv": [
+    "DATABASE_URL",
+    "REDIS_URL",
+    "JWT_SECRET",
+    "COOKIE_SECRET",
+    "ADMIN_CORS",
+    "STORE_CORS",
+    "AUTH_CORS",
+    "PORT",
+    "NODE_ENV"
+  ],
+  "tasks": {
+    "build": {
+      "dependsOn": ["^build"],
+      "outputs": [".medusa/**", "dist/**", ".next/**"],
+      "passThroughEnv": [
+        "DATABASE_URL",
+        "REDIS_URL",
+        "JWT_SECRET",
+        "COOKIE_SECRET",
+        "ADMIN_CORS",
+        "STORE_CORS",
+        "AUTH_CORS",
+        "PORT",
+        "NODE_ENV"
+      ]
+    },
+    "dev": {
+      "cache": false,
+      "persistent": true
+    },
+    "start": {
+      "dependsOn": ["^build"],
+      "passThroughEnv": [
+        "DATABASE_URL",
+        "REDIS_URL",
+        "JWT_SECRET",
+        "COOKIE_SECRET",
+        "ADMIN_CORS",
+        "STORE_CORS",
+        "AUTH_CORS",
+        "PORT",
+        "NODE_ENV"
+      ]
+    },
+    "lint": {
+      "outputs": []
+    },
+    "test": {
+      "outputs": []
+    },
+    "seed": {
+      "outputs": []
+    }
+  }
+}
