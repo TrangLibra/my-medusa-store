@@ -16,5 +16,5 @@ RUN cp -r .medusa /app/.medusa || true
 
 ENV NODE_ENV=production
 
-# Run directly inside apps/backend
-CMD ["sh", "-c", "cd /app/apps/backend && npx medusa start"]
+# Run migrations and start medusa backend
+CMD ["sh", "-c", "cd /app/apps/backend && npx medusa db:migrate && npx medusa start"]
