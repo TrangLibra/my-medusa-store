@@ -2,10 +2,10 @@
 
 **Người thực hiện:** Thực tập sinh  
 **Dự án:** My Medusa Store  
-**Định hướng từ Mentor:**
-1. *"Cứ focus vào eCommerce dùng MedusaJS nha"*
-2. *"Thay Strapi bằng Directus => Strapi hay Directus đều là Headless CMS => Research các loại headless CMS"*
-3. *"Coi sơ Directus, sau này sẽ dùng nó để lưu data của eCommerce (kèm bài hướng dẫn SEO Best Practices)"*
+**Bối cảnh & Mục tiêu nghiên cứu (Context & Objectives):**
+- **Trọng tâm kiến trúc:** Phát triển hệ sinh thái eCommerce hiện đại dựa trên nền tảng Headless Commerce của MedusaJS.
+- **Khảo sát Headless CMS:** Phân tích, so sánh các giải pháp Headless CMS phổ biến trên thị trường (Directus, Strapi, Sanity, Contentful) nhằm đánh giá giải pháp tích hợp tối ưu thay thế Strapi.
+- **Định hướng giải pháp Directus:** Đánh giá năng lực của Directus trong vai trò Content Management & Data Platform, phục vụ lưu trữ nội dung động, blog và cấu hình dữ liệu chuẩn hóa SEO (Search Engine Optimization Best Practices) cho hệ thống Storefront.
 
 ---
 
