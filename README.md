@@ -1,158 +1,54 @@
-<p align="center">
-  <a href="https://www.medusajs.com">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://user-images.githubusercontent.com/59018053/229103275-b5e482bb-4601-46e6-8142-244f531cebdb.svg">
-    <source media="(prefers-color-scheme: light)" srcset="https://user-images.githubusercontent.com/59018053/229103726-e5b529a3-9b3f-4970-8a1f-c6af37f087bf.svg">
-    <img alt="Medusa logo" src="https://user-images.githubusercontent.com/59018053/229103726-e5b529a3-9b3f-4970-8a1f-c6af37f087bf.svg">
-    </picture>
-  </a>
-</p>
-<h1 align="center">
-  Medusa DTC Starter
-</h1>
+# Pet Store - Medusa V2 E-commerce
 
-<h4 align="center">
-  <a href="https://docs.medusajs.com">Documentation</a> |
-  <a href="https://www.medusajs.com">Website</a>
-</h4>
+Chào mừng bạn đến với Source Code của cửa hàng thú cưng (Pet Store). Dự án này là một **Monorepo** bao gồm cả Backend (Medusa V2) và Frontend (Next.js Storefront), được kết nối với CMS Directus để quản lý nội dung SEO.
 
-<p align="center">
-  Building blocks for digital commerce
-</p>
-<p align="center">
-  <a href="https://github.com/medusajs/medusa/blob/develop/LICENSE">
-    <img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="Medusa is released under the MIT license." />
-  </a>
-  <a href="https://circleci.com/gh/medusajs/medusa">
-    <img src="https://circleci.com/gh/medusajs/medusa.svg?style=shield" alt="Current CircleCI build status." />
-  </a>
-  <a href="https://github.com/medusajs/medusa/blob/develop/CONTRIBUTING.md">
-    <img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat" alt="PRs welcome!" />
-  </a>
-    <a href="https://www.producthunt.com/posts/medusa"><img src="https://img.shields.io/badge/Product%20Hunt-%231%20Product%20of%20the%20Day-%23DA552E" alt="Product Hunt"></a>
-  <a href="https://discord.gg/xpCwq3Kfn8">
-    <img src="https://img.shields.io/badge/chat-on%20discord-7289DA.svg" alt="Discord Chat" />
-  </a>
-  <a href="https://twitter.com/intent/follow?screen_name=medusajs">
-    <img src="https://img.shields.io/twitter/follow/medusajs.svg?label=Follow%20@medusajs" alt="Follow @medusajs" />
-  </a>
-</p>
+Dưới đây là hướng dẫn siêu tốc (One-Click Setup) để bạn có thể chạy dự án ngay trên máy tính của mình mà không cần phải cài đặt phức tạp.
 
-# Medusa DTC Starter
+## 🛠 Yêu Cầu Cài Đặt Ban Đầu (Prerequisites)
+Để hệ thống tự động khởi tạo môi trường, bạn cần đảm bảo máy tính đã cài đặt:
+1. **Node.js** (v20 trở lên).
+2. **Docker Desktop** (Để hệ thống tự động chạy Database PostgreSQL). Mở sẵn Docker Desktop trước khi chạy lệnh.
+3. **pnpm** (Trình quản lý package của Node.js, cài đặt bằng lệnh: `npm install -g pnpm`).
 
-A production-ready monorepo starter for direct-to-consumer ecommerce stores powered by Medusa and Next.js. Includes a fully featured storefront with product browsing, cart, checkout, customer accounts, and order management.
+---
 
-## Features
+## 🚀 Hướng Dẫn Chạy Dự Án (One-Click Setup)
 
-- All of [Medusa's commerce features](https://docs.medusajs.com/resources/commerce-modules)
-- Multi-region support with automatic country detection
-- Product catalog with variant selection
-- Cart with promotion codes
-- Multi-step checkout with shipping and payment
-- Customer accounts with order history and address management
-- Order transfer between accounts
-
-## Getting Started
-
-### Deploy with Medusa Cloud
-
-The fastest way to get started is deploying with [Medusa Cloud](https://cloud.medusajs.com):
-
-1. [Create a Medusa Cloud account](https://cloud.medusajs.com)
-2. Deploy this starter directly from your dashboard
-
-### Local Installation
-
-> **Prerequisites:
->
-> - [Node.js](https://nodejs.org/) v20+
-> - [PostgreSQL](https://www.postgresql.org/) v15+
-> - [pnpm](https://pnpm.io/) v10+
-
-1. Clone the repository and install dependencies:
-
+### Bước 1: Khởi tạo toàn bộ hệ thống
+Mở Terminal tại thư mục gốc của dự án (`my-medusa-store`) và chạy lệnh sau:
 ```bash
-git clone https://github.com/medusajs/dtc-starter.git
-cd dtc-starter
-pnpm install
+npm run setup
+```
+*(Lệnh này sẽ tự động: Khởi động Docker để tạo Database PostgreSQL -> Cài đặt các thư viện Node.js -> Chạy Migrate dữ liệu của Medusa -> Nạp sẵn 15 sản phẩm Thú cưng chuẩn xác vào Database cho bạn).*
+
+### Bước 2: Bật Server Giao diện và Backend
+Sau khi lệnh setup hoàn thành, bạn chỉ cần gõ:
+```bash
+npm run dev
+```
+Hệ thống sẽ chạy song song cả 2 thứ:
+- **Trang Giao diện Storefront (Dành cho khách hàng):** `http://localhost:8000`
+- **Trang Quản trị Backend (Dành cho Admin):** `http://localhost:9000/app` (Tài khoản mặc định thường là `admin@test.com` - Mật khẩu: `supersecret`).
+
+---
+
+## 🎨 Hướng Dẫn Cho Frontend Developer
+
+Nhiệm vụ của bạn là tập trung vào thư mục `apps/storefront` (sử dụng Next.js 15 và TailwindCSS) để "trang trí" lại toàn bộ giao diện thành một **Pet Store** thân thiện và đẹp mắt.
+
+### File Môi Trường (Environment Variables)
+Bạn cần tạo một file tên là `.env.local` bên trong thư mục `apps/storefront` và dán đoạn code sau vào:
+```env
+NEXT_PUBLIC_MEDUSA_BACKEND_URL=http://localhost:9000
+MEDUSA_BACKEND_URL=http://localhost:9000
+NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY=pk_59bc719e58c264b16ab4c7e83e0d3b5182b976bf9d7fac8a195ee33c63a5ccc0
+NEXT_PUBLIC_DIRECTUS_URL=https://directus-cms-dvjk.onrender.com
 ```
 
-2. Set up environment variables for the backend:
+### Các công việc bạn cần làm:
+1. **Chỉnh Theme Color:** Đổi tone màu trắng/đen mặc định của Medusa sang tone màu ấm cúng (Cam/Vàng/Nâu/Xanh lá) phù hợp với cửa hàng Thú cưng.
+2. **Cập nhật Trang Chủ (Homepage):** Thay Banner ảnh mặc định bằng ảnh chó/mèo. Thêm Icon minh hoạ cho 3 danh mục (Thức ăn hạt, Pate, Cát vệ sinh).
+3. **Việt Hoá:** Dịch tất cả các nút bấm, luồng thanh toán từ Tiếng Anh sang Tiếng Việt (Add to cart -> Thêm vào giỏ hàng...).
+4. **Tích hợp Blog (Tùy chọn):** API của Directus CMS đã được khai báo ở `src/lib/data/directus.ts`. Bạn có thể thiết kế thêm mục Blog để gọi bài viết chăm sóc chó mèo từ Directus lên trang web.
 
-```bash
-cp apps/backend/.env.template apps/backend/.env
-```
-
-3. Set the database URL in `apps/backend.env`:
-
-```bash
-# Replace with actual database URL, make sure the database exists.
-DATABASE_URL=postgres://postgres:@localhost:5432/medusa-dtc-starter
-```
-
-4. Run migrations:
-
-```bash
-cd apps/backend
-pnpm medusa db:migrate
-```
-
-5. Add admin user:
-
-```bash
-cd apps/backend
-pnpm medusa user -e admin@test.com -p supersecret
-```
-
-6. Start Medusa backend:
-
-```bash
-cd apps/backend
-pnpm dev
-```
-
-7. Open the admin dashboard at `localhost:9000/app` and log in. Retrieve your publishable API key at Settings > Publishable API key.
-
-8. Set up environment variables for the storefront:
-
-```bash
-cp apps/storefront/.env.template apps/storefront/.env.local
-```
-
-9. Update `apps/storefront/.env.local` with your Medusa publishable API key:
-
-```bash
-NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY=pk_6c3...
-```
-
-10.  Start storefront:
-
-```bash
-cd apps/storefront
-pnpm dev
-```
-
-The storefront runs on `http://localhost:8000`.
-
-You can slo run the following command from the root to start both backend and storefront:
-
-```bash
-pnpm dev
-```
-
-## Configuration
-
-The storefront is configured via environment variables in `apps/storefront/.env.local`:
-
-| Variable | Description | Default |
-|----------|-------------|---------|
-| `NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY` | Publishable API key from your Medusa backend | — |
-| `NEXT_PUBLIC_MEDUSA_BACKEND_URL` | URL of your Medusa backend | `http://localhost:9000` |
-| `NEXT_PUBLIC_DEFAULT_REGION` | Default region country code | `dk` |
-| `NEXT_PUBLIC_BASE_URL` | Base URL of the storefront | `https://localhost:8000` |
-| `NEXT_PUBLIC_STRIPE_KEY` | Stripe publishable key (optional) | — |
-
-## Resources
-
-- [Medusa Documentation](https://docs.medusajs.com)
-- [Medusa Cloud](https://cloud.medusajs.com)
+Chúc bạn code thật mượt! Mọi Data sản phẩm từ hình ảnh đến phân loại trọng lượng đều đã được setup cực kì chuẩn chỉ. 🚀
