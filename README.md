@@ -41,7 +41,7 @@ Bạn cần tạo một file tên là `.env.local` bên trong thư mục `apps/s
 ```env
 NEXT_PUBLIC_MEDUSA_BACKEND_URL=http://localhost:9000
 MEDUSA_BACKEND_URL=http://localhost:9000
-NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY=pk_59bc719e58c264b16ab4c7e83e0d3b5182b976bf9d7fac8a195ee33c63a5ccc0
+NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY=pk_... (Lấy mã này từ Admin hoặc hỏi bạn Backend)
 NEXT_PUBLIC_DIRECTUS_URL=https://directus-cms-dvjk.onrender.com
 ```
 
