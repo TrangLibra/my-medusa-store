@@ -2,6 +2,7 @@ import { Metadata } from "next"
 import { notFound } from "next/navigation"
 import { listProducts } from "@lib/data/products"
 import { getRegion, listRegions } from "@lib/data/regions"
+import { getDirectusProductSEO } from "@lib/data/directus"
 import ProductTemplate from "@modules/products/templates"
 import { HttpTypes } from "@medusajs/types"
 
@@ -87,13 +88,25 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
     notFound()
   }
 
+  const directusSEO = await getDirectusProductSEO(product.id)
+
+  const metaTitle =
+    directusSEO?.meta_title || `${product.title} | Medusa Store`
+  const metaDescription =
+    directusSEO?.meta_description || product.description || `${product.title}`
+  const ogImages = directusSEO?.og_image
+    ? [directusSEO.og_image]
+    : product.thumbnail
+    ? [product.thumbnail]
+    : []
+
   return {
-    title: `${product.title} | Medusa Store`,
-    description: `${product.title}`,
+    title: metaTitle,
+    description: metaDescription,
     openGraph: {
-      title: `${product.title} | Medusa Store`,
-      description: `${product.title}`,
-      images: product.thumbnail ? [product.thumbnail] : [],
+      title: metaTitle,
+      description: metaDescription,
+      images: ogImages,
     },
   }
 }

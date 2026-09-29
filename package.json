@@ -7,6 +7,7 @@
   },
   "scripts": {
     "dev": "pnpm -r dev",
+    "setup": "docker-compose up -d && pnpm install && pnpm --filter @dtc/backend exec medusa db:migrate && pnpm --filter @dtc/backend run seed-realistic",
     "build": "pnpm --filter @dtc/backend run build",
     "start": "pnpm --filter @dtc/backend run start",
     "lint": "turbo lint",

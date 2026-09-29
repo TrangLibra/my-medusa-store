@@ -20,10 +20,11 @@ export default async function ProductPreview({
   })
 
   return (
-    <LocalizedClientLink
-      href={`/products/${product.handle}`}
-      className="group block"
-    >
+    <div className="group block relative">
+      <LocalizedClientLink
+        href={`/products/${product.handle}`}
+        className="block"
+      >
       <div
         className="
           rounded-xl
@@ -68,12 +69,16 @@ export default async function ProductPreview({
             </span>
           </div>
 
-          <AddToCartButton
-  variantId={product.variants?.[0]?.id ?? ""}
-  countryCode={_region.countries?.[0]?.iso_2 ?? "dk"}
-/>
         </div>
       </div>
-    </LocalizedClientLink>
+      </LocalizedClientLink>
+      
+      <div className="px-4 pb-4 bg-white relative z-10">
+        <AddToCartButton
+          variantId={product.variants?.[0]?.id ?? ""}
+          countryCode={_region.countries?.[0]?.iso_2 ?? "dk"}
+        />
+      </div>
+    </div>
   )
 }
